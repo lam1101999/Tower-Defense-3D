@@ -6,3 +6,4 @@ ok again
 Lam 2
 Lam 3
 
+thanh 1
