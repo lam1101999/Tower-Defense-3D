@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PathPoints : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static Transform[] points;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Awake() {
+        points  = new Transform[transform.childCount];
+
+        for(int i = 0; i< points.Length; i++){
+            points[i] = transform.GetChild(i);
+        }
     }
 }
