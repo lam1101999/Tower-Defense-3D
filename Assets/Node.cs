@@ -20,7 +20,7 @@ public class Node : MonoBehaviour
     
     void OnMouseDown(){
     if(turret!=null){
-    Debug.Log("Cannot build on this node)
+    Debug.Log("Cannot build on this node);
     return;
     }
     
