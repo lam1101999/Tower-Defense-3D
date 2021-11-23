@@ -27,21 +27,28 @@ public class Node : MonoBehaviour
             Debug.Log("Cannot build on this node");
             return;
         }
+        buildManager.buildTurretOn(this);
 
-        GameObject currentTurret = buildManager.GetCurrentTurret();
-        if (currentTurret == null)
-            return;
-        turret = (GameObject)Instantiate(currentTurret, transform.position + positionOffSet, transform.rotation);
     }
 
     void OnMouseEnter()
     {
-        render.material.color = hoverColor;
+        if (buildManager.GetCurrentTurret()!= null && buildManager.IsEnoughMoney())
+            render.material.color = hoverColor;
+        else render.material.color = Color.red;
     }
 
     void OnMouseExit()
     {
         render.material.color = startColor;
+    }
+    public void SetTurret(GameObject _turret)
+    {
+        turret = _turret;
+    }
+    public Vector3 GetPositionToBuild()
+    {
+        return transform.position + positionOffSet;
     }
 
 }

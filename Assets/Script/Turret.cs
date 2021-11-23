@@ -14,6 +14,7 @@ public class Turret : MonoBehaviour
     public float range = 15f;
     public float fireRate = 1;
     [Header("Unity Setup")]
+    public int cost;
     public Transform rotatePart;
 
     public GameObject bulletPrefab;
