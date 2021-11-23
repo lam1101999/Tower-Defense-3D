@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     private float panSpeed = 30f;
     private float scrollSpeed = 4000f;
     private float panBorderThickness = 10;
-    private bool isMove;
+    private bool isMove = true;
     private float minX = 0;
     private float maxX = 90;
     private float minY = 10;

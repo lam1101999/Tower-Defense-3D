@@ -4,6 +4,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Transform target;
+    private float turningSpeed = 10;
+    [Header("Unity Setup")]
+    public float explosionRadius = 0;
     public float speed = 15f;
     public GameObject impactEffect;
 
@@ -19,12 +22,12 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        AimTarget();
         Vector3 direction = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
 
-    if (direction.magnitude <= distanceThisFrame)
+        if (direction.magnitude <= distanceThisFrame)
         {
             HitTarget();
             return;
@@ -37,7 +40,41 @@ public class Bullet : MonoBehaviour
         GameObject EffectInstant = Instantiate(impactEffect, transform.position, transform.rotation) as GameObject;
         Destroy(EffectInstant, 2);
 
-        Destroy(gameObject);
+        if (explosionRadius > 0)
+        {
+            Explode();
+        }
+        else
+        {
+            Damage(target);
+        }
         Destroy(target.gameObject);
+    }
+    private void Explode()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.tag == "Enemy")
+            {
+                Damage(collider.transform);
+            }
+        }
+    }
+    private void Damage(Transform target)
+    {
+        Destroy(target.gameObject);
+    }
+    private void AimTarget()
+    {
+        Vector3 direction = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        Quaternion rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * turningSpeed);
+        transform.rotation = rotation;
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 }

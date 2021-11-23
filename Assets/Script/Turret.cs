@@ -1,16 +1,18 @@
 
 using UnityEngine;
 
+
 public class Turret : MonoBehaviour
 {
     private Transform target;
     private string enemyTag = "Enemy";
     private float fireCountDown;
 
+
     [Header("Attribute")]
     private float turningSpeed = 10f;
     public float range = 15f;
-    private float fireRate = 1;
+    public float fireRate = 1;
     [Header("Unity Setup")]
     public Transform rotatePart;
 
@@ -69,7 +71,7 @@ public class Turret : MonoBehaviour
             {
                 bullet.Seek(target);
             }
-            fireCountDown = 1f/fireRate;
+            fireCountDown = 1f / fireRate;
         }
         fireCountDown -= Time.deltaTime;
     }

@@ -10,12 +10,14 @@ public class Node : MonoBehaviour
 
     private GameObject turret;
     private Vector3 positionOffSet;
+    private BuildManager buildManager;
 
     private void Start()
     {
         render = GetComponent<Renderer>();
         startColor = render.material.color;
         positionOffSet = new Vector3(0, 0.5f, 0);
+        buildManager = BuildManager.GetInstance();
     }
 
     void OnMouseDown()
@@ -26,7 +28,9 @@ public class Node : MonoBehaviour
             return;
         }
 
-        GameObject currentTurret = BuildManager.GetInstance().GetCurrentTurret();
+        GameObject currentTurret = buildManager.GetCurrentTurret();
+        if (currentTurret == null)
+            return;
         turret = (GameObject)Instantiate(currentTurret, transform.position + positionOffSet, transform.rotation);
     }
 

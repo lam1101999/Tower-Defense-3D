@@ -15,6 +15,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1862617631707137698, guid: 2ba2fb3752979a54a898f1fc223dc5b1,
     type: 3}
   spawnerPosition: {fileID: 7582883513819837566}
+  countDownText: {fileID: 6232126096943945301, guid: f350941e7de1a4c4ea14a8b8cd20f3d5,
+    type: 3}
 --- !u!1001 &5323992325065049425
 PrefabInstance:
   m_ObjectHideFlags: 0

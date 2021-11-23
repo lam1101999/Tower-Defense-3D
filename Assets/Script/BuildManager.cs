@@ -12,7 +12,6 @@ public class BuildManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        currentTurret = standardTurret;
     }
 
     public static BuildManager GetInstance()
@@ -26,5 +25,8 @@ public class BuildManager : MonoBehaviour
     public GameObject GetCurrentTurret()
     {
         return currentTurret;
+    }
+    public void SetCurrentTurret(GameObject _currentTurret){
+        currentTurret = _currentTurret;
     }
 }
