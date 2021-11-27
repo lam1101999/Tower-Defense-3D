@@ -21,7 +21,6 @@ public class BuildManager : MonoBehaviour
     private void Update()
     {
 
-       
 
 
     }
