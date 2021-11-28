@@ -26,10 +26,10 @@ public class BuildManager : MonoBehaviour
     }
     public static BuildManager GetInstance()
     {
-        if (instance == null)
-        {
-            instance = new BuildManager();
-        }
+        // if (instance == null)
+        // {
+        //     instance = new BuildManager();
+        // }
         return instance;
     }
 

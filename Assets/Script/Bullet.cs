@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
     private Transform target;
     private float turningSpeed = 10;
     [Header("Unity Setup")]
+    public int damage = 5;
     public float explosionRadius = 0;
     public float speed = 15f;
     public GameObject impactEffect;
@@ -25,7 +26,6 @@ public class Bullet : MonoBehaviour
         AimTarget();
         Vector3 direction = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
-
 
         if (direction.magnitude <= distanceThisFrame)
         {
@@ -48,7 +48,7 @@ public class Bullet : MonoBehaviour
         {
             Damage(target);
         }
-        Destroy(target.gameObject);
+        Destroy(gameObject);
     }
     private void Explode()
     {
@@ -63,7 +63,8 @@ public class Bullet : MonoBehaviour
     }
     private void Damage(Transform target)
     {
-        Destroy(target.gameObject);
+        Enemy enemy= target.GetComponent<Enemy>();
+        enemy.TakeDame(damage);
     }
     private void AimTarget()
     {

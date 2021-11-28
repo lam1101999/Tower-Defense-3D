@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d54343564d060419991aaed8cd382e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoint: 3
+  startHealthPoint: 3
   startCurrency: 300
   CurrenncyText: {fileID: 0}
 --- !u!114 &3589999917446595221
@@ -76,5 +76,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1862617631707137698, guid: 2ba2fb3752979a54a898f1fc223dc5b1,
     type: 3}
-  spawnerPosition: {fileID: 0}
+  spawnerPosition: {fileID: 7582883513819837566, guid: 03480460afe6f2b42bba29158a84ec6c,
+    type: 3}
   countDownText: {fileID: 0}
