@@ -111,6 +111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 15
   startHealth: 10
-  speed: 10
+  speed: 100
   deadEffect: {fileID: 9078860632950313805, guid: 09dbcc08cd607b64cbec9ef8e555bd21,
     type: 3}

@@ -8,6 +8,7 @@ public class PlayerStat : MonoBehaviour
     private static PlayerStat instance;
     private static int currency;
     private static int healthPoint;
+    private static int rounds;
     [Header("optional stat")]
     public int startHealthPoint = 3;
     public int startCurrency = 300;
@@ -15,7 +16,8 @@ public class PlayerStat : MonoBehaviour
     public Text CurrenncyText;
     public Text HealthText;
     private void Awake()
-    {
+    {   
+        rounds = 0;
         healthPoint = startHealthPoint;
         currency = startCurrency;
         instance = this;
@@ -60,6 +62,14 @@ public class PlayerStat : MonoBehaviour
     public void MinusHealth(int health){
         healthPoint -= health;
     }
+     public void SetRounds(int _rounds)
+    {
+        rounds = _rounds;
+    }
+    public int getRounds(){
+        return rounds;
+    }
+
 
 
 }

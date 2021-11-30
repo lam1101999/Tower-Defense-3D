@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    private static CameraController instance;
     [Header("Attribute")]
     private float panSpeed = 30f;
     private float scrollSpeed = 4000f;
     private float panBorderThickness = 10;
-    private bool isMove = true;
+    private bool isMove = false;
     private float minX = 0;
     private float maxX = 90;
     private float minY = 10;
     private float maxY = 90;
     private float minZ = -90;
     private float maxZ = 60;
+
+    private void Awake() {
+        instance = this;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -55,5 +60,17 @@ public class CameraController : MonoBehaviour
         positionForZoom.y = Mathf.Clamp(positionForZoom.y, minY, maxY);
 
         transform.position = positionForZoom;
+    }
+    public void setIsMove(bool wantMoveOrNot){
+        isMove = wantMoveOrNot;
+    }
+    public static CameraController GetInstance()
+    {
+        // if (instance == null)
+        // {
+        //     instance = new PlayerStat();
+        // }
+        return instance;
+
     }
 }
