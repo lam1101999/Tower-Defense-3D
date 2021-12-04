@@ -15,6 +15,10 @@ public class Turret : MonoBehaviour
     public float fireRate = 1;
     [Header("Unity Setup")]
     public int cost;
+    public int upgradeCost;
+
+    public GameObject upgradedTurret;
+
     public Transform rotatePart;
 
     public GameObject bulletPrefab;

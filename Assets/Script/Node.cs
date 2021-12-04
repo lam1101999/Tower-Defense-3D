@@ -24,7 +24,7 @@ public class Node : MonoBehaviour
     {
         if (turret != null)
         {
-            Debug.Log("Cannot build on this node");
+            buildManager.setNode(this);
             return;
         }
         buildManager.buildTurretOn(this);
@@ -41,6 +41,10 @@ public class Node : MonoBehaviour
     void OnMouseExit()
     {
         render.material.color = startColor;
+    }
+    public GameObject getTurret()
+    {
+        return turret;
     }
     public void SetTurret(GameObject _turret)
     {
