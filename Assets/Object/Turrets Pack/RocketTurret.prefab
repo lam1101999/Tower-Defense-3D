@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4005607512585024729}
-  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.25198632, z: -0, w: -0.9677308}
   m_LocalPosition: {x: 0.000000007450581, y: 0.6820341, z: 0.0004019551}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -234,6 +234,9 @@ MonoBehaviour:
   range: 20
   fireRate: 0.5
   cost: 100
+  upgradeCost: 120
+  upgradedTurret: {fileID: 6687543515366657994, guid: 68b982fda315fd446b0659d5fc2e7aba,
+    type: 3}
   rotatePart: {fileID: 4005607512584988921}
   bulletPrefab: {fileID: 3887757613871940868, guid: e35431216cace604181a5a3a7188407e,
     type: 3}
