@@ -183,8 +183,7 @@ MonoBehaviour:
   cost: 110
   upgradeCost: 0
   upgradedTurret: {fileID: 0}
-  rotatePart: {fileID: 4005607512584988921, guid: 01622d8d2b9b6bb4e8b4e8958298ecb6,
-    type: 3}
+  rotatePart: {fileID: 6687543515366429678}
   bulletPrefab: {fileID: 6750244914440204360, guid: 02bdb70efc5cf6446a0e4241d4e57aa9,
     type: 3}
   firePosition: {fileID: 5016640151524606743}

@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour
     void EndPath()
     {
         PlayerStat.GetInstance().MinusHealth(1);
+        WaveSpawner.enemiesAlive--;
         Destroy(gameObject);
     }
     public void TakeDame(int damage)
@@ -60,6 +61,7 @@ public class Enemy : MonoBehaviour
         GameObject effectInstante = Instantiate(deadEffect, transform.position, transform.rotation) as GameObject;
         Destroy(effectInstante, 2f);
         PlayerStat.GetInstance().AddCredit(money);
+        WaveSpawner.enemiesAlive--;
         Destroy(gameObject);
     }
 }

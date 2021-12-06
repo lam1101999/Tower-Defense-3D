@@ -8,7 +8,7 @@ public class BuildManager : MonoBehaviour
     private GameObject currentTurret;
 
     private Node selectedNode;
-    public NodeUI nodeUI;
+    private UpgradeSellUI upgradeSellUI;
     private PlayerStat playerStat;
 
     [Header("Unity setup")]
@@ -19,7 +19,7 @@ public class BuildManager : MonoBehaviour
     {
         instance = this;
         playerStat = PlayerStat.GetInstance();
-        nodeUI = NodeUI.GetInstance();
+        upgradeSellUI = UpgradeSellUI.instance;
     }
 
     private void Update()
@@ -60,7 +60,7 @@ public class BuildManager : MonoBehaviour
         node.SetTurret((GameObject)Instantiate(currentTurret, node.GetPositionToBuild(), node.transform.rotation));
     }
 
-    public void UpgradeTurret(Node selectedNode) 
+    public void UpgradeTurret()
     {
         if (selectedNode == null && selectedNode.getTurret() == null)
             return;
@@ -71,21 +71,23 @@ public class BuildManager : MonoBehaviour
         playerStat.DeCredit(selectedNode.getTurret().GetComponent<Turret>().upgradeCost);
         Destroy(selectedNode.getTurret());
         selectedNode.SetTurret((GameObject)Instantiate(selectedNode.getTurret().GetComponent<Turret>().upgradedTurret, selectedNode.GetPositionToBuild(), selectedNode.transform.rotation));
+        upgradeSellUI.Hide();
     }
 
-    public void SellTurret(Node selectedNode)
+    public void SellTurret()
     {
         if (selectedNode == null && selectedNode.getTurret() == null)
             return;
 
-        playerStat.AddCredit(selectedNode.getTurret().GetComponent<Turret>().cost/2);
+        playerStat.AddCredit(selectedNode.getTurret().GetComponent<Turret>().cost / 2);
         //Destroy
         Destroy(selectedNode.getTurret());
         selectedNode = null;
+        upgradeSellUI.Hide();
     }
 
     public bool IsEnoughMoney()
-    {  
+    {
         if (playerStat.GetCurrency() < currentTurret.GetComponent<Turret>().cost)
             return false;
         else
@@ -93,7 +95,7 @@ public class BuildManager : MonoBehaviour
 
     }
     public bool IsEnoughUpgradeMoney()
-    {  
+    {
         if (playerStat.GetCurrency() < selectedNode.getTurret().GetComponent<Turret>().upgradeCost)
             return false;
         else
@@ -105,7 +107,7 @@ public class BuildManager : MonoBehaviour
     {
         if (selectedNode.getTurret().GetComponent<Turret>().upgradeCost == 0)
             return false;
-        else 
+        else
             return true;
     }
 
@@ -119,14 +121,13 @@ public class BuildManager : MonoBehaviour
 
         selectedNode = _selectedNode;
         currentTurret = null;
-
-        nodeUI.SetTarget(_selectedNode);
+        upgradeSellUI = UpgradeSellUI.instance;
+        upgradeSellUI.Wakeup(selectedNode.transform);
     }
 
-    public void DeselectNode ()
+    public void DeselectNode()
     {
-        nodeUI  = NodeUI.GetInstance();
         selectedNode = null;
-        nodeUI.Hide();
+        UpgradeSellUI.instance.Hide();
     }
 }

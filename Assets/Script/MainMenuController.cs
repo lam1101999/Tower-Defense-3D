@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    public string level = "Map 1";
+    public string level = "SelectLevel";
 
     public void Play(){
         SceneManager.LoadScene(level);

@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [Header("Unity setup")]
     public GameObject gameOverUI;
     public GameObject pauseUI;
+    public string nextLevel;
+    public int levelToUnlock = 2;
     // Update is called once per frame
     private void Awake()
     {
@@ -26,10 +28,16 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
+
         if (isEndGame)
             return;
         CheckEndGame();
         CheckPauseGame();
+        if (Input.GetMouseButtonDown(1))
+        {
+            BuildManager.GetInstance().DeselectNode();
+            BuildManager.GetInstance().SetCurrentTurret(null);
+        }
     }
     void CheckEndGame()
     {
@@ -73,8 +81,14 @@ public class GameManager : MonoBehaviour
     public void Continue()
     {
         pauseUI.SetActive(false);
-        isPause =false;
+        isPause = false;
     }
-    
+
+    public void WinLevel(){
+        Debug.Log("YOU WIN");
+        PlayerPrefs.SetInt("levelReached", levelToUnlock);
+        SceneManager.LoadScene("SelectLevel");
+    }
+
 
 }

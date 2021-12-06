@@ -30,10 +30,6 @@ public class PlayerStat : MonoBehaviour
     }
     public static PlayerStat GetInstance()
     {
-        // if (instance == null)
-        // {
-        //     instance = new PlayerStat();
-        // }
         return instance;
 
     }

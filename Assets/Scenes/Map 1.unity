@@ -1213,6 +1213,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1442579783}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &114663353 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8717492241629926821, guid: 149da653f37b00b48ae59882cc6b180e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1442579783}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114663350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1bd5cdd94583d47a139019cbc71ee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114663355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1227,6 +1239,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 201865707}
   pauseUI: {fileID: 1030555287}
+  nextLevel: 
+  levelToUnlock: 2
 --- !u!1001 &135468476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2215,9 +2229,9 @@ RectTransform:
   m_Father: {fileID: 1660794115}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -20}
   m_SizeDelta: {x: 60, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &249423544
@@ -2264,9 +2278,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1867009613}
-        m_TargetAssemblyTypeName: NodeUI, Assembly-CSharp
-        m_MethodName: Upgrade
+      - m_Target: {fileID: 114663353}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: UpgradeTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5522,7 +5536,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 92466e53a8d69bc429f72af9278c7235, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8862634872860184727, guid: 49401338da64d2749b810a81fd74d084, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 49401338da64d2749b810a81fd74d084, type: 3}
 --- !u!1001 &514296402
 PrefabInstance:
@@ -9540,9 +9555,9 @@ RectTransform:
   m_Father: {fileID: 1660794115}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 90, y: -20}
   m_SizeDelta: {x: 60, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &822551422
@@ -9589,9 +9604,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1867009613}
-        m_TargetAssemblyTypeName: NodeUI, Assembly-CSharp
-        m_MethodName: Sell
+      - m_Target: {fileID: 114663353}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: SellTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14867,7 +14882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1287437539
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16108,6 +16123,91 @@ PrefabInstance:
       propertyPath: countDownText
       value: 
       objectReference: {fileID: 374523684}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.data[0].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.data[1].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.data[2].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.data[3].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.data[4].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.data[0].count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.data[0].enemy
+      value: 
+      objectReference: {fileID: 60133972728579545, guid: 27a0e935163915c42a3c0968423df2b6,
+        type: 3}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.data[1].count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.data[1].enemy
+      value: 
+      objectReference: {fileID: 1862617631707137703, guid: 2ba2fb3752979a54a898f1fc223dc5b1,
+        type: 3}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.data[2].count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.data[2].enemy
+      value: 
+      objectReference: {fileID: 60133972728579545, guid: 27a0e935163915c42a3c0968423df2b6,
+        type: 3}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.data[3].count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.data[3].enemy
+      value: 
+      objectReference: {fileID: 60133972728579545, guid: 27a0e935163915c42a3c0968423df2b6,
+        type: 3}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.data[4].count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589999917446595221, guid: 149da653f37b00b48ae59882cc6b180e,
+        type: 3}
+      propertyPath: waves.Array.data[4].enemy
+      value: 
+      objectReference: {fileID: 6522585415461324835, guid: 375b9d13273e20749a5b90f3480700e3,
+        type: 3}
     - target: {fileID: 3589999917446595241, guid: 149da653f37b00b48ae59882cc6b180e,
         type: 3}
       propertyPath: m_Name
@@ -16172,7 +16272,7 @@ PrefabInstance:
         type: 3}
       propertyPath: nodeUI
       value: 
-      objectReference: {fileID: 1867009613}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 149da653f37b00b48ae59882cc6b180e, type: 3}
 --- !u!1001 &1448483087
@@ -20985,7 +21085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1867009612}
-  - component: {fileID: 1867009613}
+  - component: {fileID: 1867009614}
   m_Layer: 0
   m_Name: NodeUI
   m_TagString: Untagged
@@ -21008,7 +21108,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1867009613
+--- !u!114 &1867009614
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21017,12 +21117,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1867009611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6c0f3ec2c61db249b599e75f4d85d3b, type: 3}
+  m_Script: {fileID: 11500000, guid: aca6d4db778f29d46b161fe4c048a2cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 1287437538}
-  buildManager: {fileID: 0}
-  node: {fileID: 0}
 --- !u!1001 &1868657138
 PrefabInstance:
   m_ObjectHideFlags: 0
