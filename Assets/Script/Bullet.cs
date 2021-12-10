@@ -51,7 +51,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
     private void Explode()
-    {
+    { 
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider collider in colliders)
         {
@@ -65,6 +65,7 @@ public class Bullet : MonoBehaviour
     {
         Enemy enemy= target.GetComponent<Enemy>();
         enemy.TakeDame(damage);
+        Debug.Log(enemy.health);
     }
     private void AimTarget()
     {

@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private int health;
+    public int health;
     private Transform target;
     private int pathPointIndex = 0;
+    private float turningSpeed = 10;
     [Header("Unity setup")]
     public int money = 15;
     public int startHealth = 10;
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AimTarget();
         Vector3 direction = target.position - transform.position;
         transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
 
@@ -63,5 +65,12 @@ public class Enemy : MonoBehaviour
         PlayerStat.GetInstance().AddCredit(money);
         WaveSpawner.enemiesAlive--;
         Destroy(gameObject);
+    }
+    private void AimTarget()
+    {
+        Vector3 direction = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        Quaternion rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * turningSpeed);
+        transform.rotation = rotation;
     }
 }

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     private bool isEndGame;
     private bool isPause;
     [Header("Unity setup")]
+    public GameObject winUI;
     public GameObject gameOverUI;
     public GameObject pauseUI;
     public string nextLevel;
@@ -83,11 +84,14 @@ public class GameManager : MonoBehaviour
         pauseUI.SetActive(false);
         isPause = false;
     }
+    public void SelectLevel(){
+        SceneManager.LoadScene("SelectLevel");
+    }
 
     public void WinLevel(){
         Debug.Log("YOU WIN");
         PlayerPrefs.SetInt("levelReached", levelToUnlock);
-        SceneManager.LoadScene("SelectLevel");
+        winUI.SetActive(true);
     }
 
 
