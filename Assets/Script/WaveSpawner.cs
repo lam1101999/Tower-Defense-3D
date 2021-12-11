@@ -45,7 +45,6 @@ public class WaveSpawner : MonoBehaviour
                 yield return new WaitForSeconds(1f / wave.rate);
             }
         }
-
         else if (enemiesAlive == 0)
         {
             gameManager.WinLevel();

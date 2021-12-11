@@ -65,7 +65,6 @@ public class Bullet : MonoBehaviour
     {
         Enemy enemy= target.GetComponent<Enemy>();
         enemy.TakeDame(damage);
-        Debug.Log(enemy.health);
     }
     private void AimTarget()
     {
