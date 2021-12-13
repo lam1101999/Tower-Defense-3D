@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviour
 
     public void Retry()
     {
-        Continue();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void Menu()

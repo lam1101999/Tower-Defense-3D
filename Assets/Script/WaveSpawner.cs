@@ -14,6 +14,7 @@ public class WaveSpawner : MonoBehaviour
     private int waveIndex = 0;
     void Start()
     {
+        enemiesAlive = 0;
         gameManager = GameManager.GetInstance();
     }
 
@@ -35,6 +36,7 @@ public class WaveSpawner : MonoBehaviour
         PlayerStat playerStat = PlayerStat.GetInstance();
         playerStat.SetRounds(waveIndex);
 
+        Debug.Log(enemiesAlive);
         if (waveIndex < waves.Length)
         {
             Wave wave = waves[waveIndex];
@@ -48,7 +50,6 @@ public class WaveSpawner : MonoBehaviour
         else if (enemiesAlive == 0)
         {
             gameManager.WinLevel();
-            this.enabled = false;
         }
 
 
